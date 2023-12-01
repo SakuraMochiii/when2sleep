@@ -5,6 +5,8 @@ function mainPage(props) {
     const [timeUntil, setTimeUntil] = useState("");
     const [twoTime, settwoTime] = useState("");
     const [twoTime2, settwoTime2] = useState("");
+    const [hoursSleep, sethoursSleep] = useState("");
+    const [wakeUp, setwakeUp] = useState("");
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
     //const [currentDateTime, setCurrentDateTime] = useState("");
     
@@ -29,6 +31,15 @@ function mainPage(props) {
         return `You have ${hours2} hours and ${minutes2} minutes`;
     };
 
+    const calculateWakeTime= (hrs, selectedTime) => {
+        const wakeUpTime = new Date(selectedTime);
+        wakeUpTime.setHours(wakeUpTime.getHours() - hrs);
+        if (isNaN(wakeUpTime)) {
+            return "Enter a time to find out when you should sleep!";
+        }
+        return `You need to sleep at ${wakeUpTime.toLocaleTimeString()}`;
+    };
+
     const handleInputChange = (event) => {
         setTimeUntil(event.target.value);
     };
@@ -40,6 +51,16 @@ function mainPage(props) {
     const handleInputtime2Change = (event) => {
         settwoTime2(event.target.value);
     };
+
+    const handleInputHoursChange = (event) => {
+        sethoursSleep(event.target.value);
+    };
+
+    const handleInputwakeChange = (event) => {
+        setwakeUp(event.target.value);
+    };
+
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -53,12 +74,16 @@ function mainPage(props) {
             const twoTimemessage = calculatetwoTimeDifference(twoTime, twoTime2);
             settwoTimeMessage(twoTimemessage);
 
+            const hoursSleepMessage = calculateWakeTime(hoursSleep, wakeUp);
+            sethoursSleepMessage(hoursSleepMessage);
+
         }, 1000);
         return () => clearInterval(interval);
-    }, [timeUntil, twoTime, twoTime2]);
+    }, [timeUntil, twoTime, twoTime2, wakeUp, hoursSleep]);
 
     const [timeUntilMessage, setTimeUntilMessage] = useState("Enter a time to find out how much sleep you can get!");
     const [twoTimeMessage, settwoTimeMessage] = useState("Enter a time to find out how much sleep you can get!");
+    const [hoursSleepMessage, sethoursSleepMessage] = useState("Enter a time to find out when you should sleep!");
       
 return(
    <>
@@ -68,14 +93,22 @@ return(
    <p>Time Until: &nbsp; 
    <input id="timeUntil" type="datetime-local" name="time" value={timeUntil} onChange={handleInputChange} /></p>
    <p id="timeUntilMessage">{timeUntilMessage}</p>
-    </div>
+    </div><br/>
 
     <div>
-   <p>How much sleep will I get if I sleep between these two times?</p>
+   <p>When to Start and End Sleep:</p>
    <input id="twoTimes" type="datetime-local" name="time" value={twoTime} onChange={handleInputtimeChange} />
    &nbsp; 
    <input id="twoTimes2" type="datetime-local" name="time" value={twoTime2} onChange={handleInputtime2Change} />
    <p id="twoTimesMessage">{twoTimeMessage}</p>
+   </div><br/>
+
+   <div>
+   <p>When should I sleep to get &nbsp; 
+   <input type="number" inputmode="numeric" id="hoursSleep" name="hoursSleep" value={hoursSleep} onChange={handleInputHoursChange} min="0" max="24"/>
+   &nbsp;  hours of sleep if I need to wake up at</p>
+   <input id="wakeUp" type="datetime-local" name="wakeUp" value={wakeUp} onChange={handleInputwakeChange} />
+   <p id="hoursSleepMessage">{hoursSleepMessage}</p>
    </div>
    </>);
 }
