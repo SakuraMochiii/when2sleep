@@ -7,6 +7,7 @@ function mainPage(props) {
     const [twoTime2, settwoTime2] = useState("");
     const [hoursSleep, sethoursSleep] = useState("");
     const [wakeUp, setwakeUp] = useState("");
+    const [timeZone, settimeZone] = useState("");
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
     //const [currentDateTime, setCurrentDateTime] = useState("");
     
@@ -21,6 +22,7 @@ function mainPage(props) {
         }
         return `You have ${hours} hours and ${minutes} minutes`;
     };
+
     const calculatetwoTimeDifference = (anotherTime, selectedTime) => {
         const timeDiffInMilliseconds = new Date(selectedTime) -  new Date(anotherTime);
         const hours2 = Math.floor(timeDiffInMilliseconds / 3600000);
@@ -44,7 +46,7 @@ function mainPage(props) {
         const curTime = new Date(selectedTime);
         curTime.setHours(curTime.getHours() - hrs);
         if (isNaN(curTime)) {
-            return "Enter a time to find out what time zone best suits your sleep schedule!";
+            return "Enter a time to find out what*** time zone best suits your sleep schedule!";
         }
         const timeZones = {
             "Shanghai": 8,
@@ -90,6 +92,11 @@ function mainPage(props) {
         setwakeUp(event.target.value);
     };
 
+    const handleInputTimeZoneChange = (event) => {
+        settimeZone(event.target.value);
+    };
+
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -106,14 +113,19 @@ function mainPage(props) {
             const hoursSleepMessage = calculateWakeTime(hoursSleep, wakeUp);
             sethoursSleepMessage(hoursSleepMessage);
 
+            const timeZoneMessage = calculateTimeZone(timeZone);
+            settimeZoneMessage(timeZoneMessage);
+
         }, 1000);
         return () => clearInterval(interval);
-    }, [timeUntil, twoTime, twoTime2, wakeUp, hoursSleep]);
+    }, [timeUntil, twoTime, twoTime2, wakeUp, hoursSleep, timeZone]);
 
     const [timeUntilMessage, setTimeUntilMessage] = useState("Enter a time to find out how much sleep you can get!");
     const [twoTimeMessage, settwoTimeMessage] = useState("Enter a time to find out how much sleep you can get!");
     const [hoursSleepMessage, sethoursSleepMessage] = useState("Enter a time to find out when you should sleep!");
-      
+    const [timeZoneMessage, settimeZoneMessage] = useState("Enter a time to find out what time zone best suits your sleep schedule!");
+
+    
 return(
    <div>
     <div id="currentTime">
@@ -148,6 +160,15 @@ return(
    &nbsp;  hours of sleep if <br/> I need to wake up at&nbsp;
    <input id="wakeUp" type="datetime-local" name="wakeUp" value={wakeUp} onChange={handleInputwakeChange} /></p>
    <p id="hoursSleepMessage">{hoursSleepMessage}</p>
+   </div><br/>
+   </div>
+   
+   <div class="leftmoon">
+    <img src="../../images/starMoon.png"/>
+    <div class="calculateDiv">
+   <p class="question">What Time Zone am I Sleeping In?</p>
+   <input id="timeZone" type="datetime-local" name="time" value={timeZone} onChange={handleInputTimeZoneChange} />
+   <p id="timeZoneMessage">{timeZoneMessage}</p>
    </div>
    </div>
    </div>);
