@@ -59,8 +59,8 @@
 ul {
   list-style: none;
   display: flex;
-	margin: 0;
-  padding: 5px;
+	margin: 5px;
+  padding: 0px;
   align-items: center;
 }
 
@@ -112,4 +112,30 @@ ul li a{
   font-family: question;
   font-size: 35px;
   margin:10px;
+}
+
+#logo{
+  margin:0px;
+  padding:2px;
+  width:120px;
+}
+
+.leftmoon img{
+  position: absolute;
+  left: 0px;
+  bottom:0px;
+  width: 10%;
+}
+
+.moon img{
+  position: absolute;
+  right: 0px;
+  bottom:0px;
+  width: 10%;
+  transform: scaleX(-1);
+}
+
+
+.moon, .leftmoon{
+  position: relative;
 }
