@@ -4,7 +4,9 @@ return(
     <header>
     <nav>
         <ul>
-        <li><a href="/"> {props.title} </a></li>
+        <li id="when2sleep"><a href="/"> {props.title} </a></li>
+        <li><a href="/tracker"> Tracker </a></li>
+        <li><a href="/login"> Login </a></li>
         </ul>
     </nav>
     </header>);

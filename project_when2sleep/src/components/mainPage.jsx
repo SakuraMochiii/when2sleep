@@ -87,27 +87,29 @@ function mainPage(props) {
       
 return(
    <>
+    <div id="currentTime">
     <h1>{currentTime}</h1>
+   </div><br/>
 
-    <div>
-   <p>Time Until: &nbsp; 
-   <input id="timeUntil" type="datetime-local" name="time" value={timeUntil} onChange={handleInputChange} /></p>
+    <div class="calculateDiv">
+   <p class="question">How Many Hours of Sleep Will I Get If I Sleep Now?</p>
+   <input id="timeUntil" type="datetime-local" name="time" value={timeUntil} onChange={handleInputChange} />
    <p id="timeUntilMessage">{timeUntilMessage}</p>
     </div><br/>
 
-    <div>
-   <p>When to Start and End Sleep:</p>
+    <div class="calculateDiv">
+   <p class="question">When to Start and End Sleep:</p>
    <input id="twoTimes" type="datetime-local" name="time" value={twoTime} onChange={handleInputtimeChange} />
-   &nbsp; 
+   &nbsp; to &nbsp;
    <input id="twoTimes2" type="datetime-local" name="time" value={twoTime2} onChange={handleInputtime2Change} />
    <p id="twoTimesMessage">{twoTimeMessage}</p>
    </div><br/>
 
-   <div>
-   <p>When should I sleep to get &nbsp; 
-   <input type="number" inputmode="numeric" id="hoursSleep" name="hoursSleep" value={hoursSleep} onChange={handleInputHoursChange} min="0" max="24"/>
-   &nbsp;  hours of sleep if I need to wake up at</p>
-   <input id="wakeUp" type="datetime-local" name="wakeUp" value={wakeUp} onChange={handleInputwakeChange} />
+   <div class="calculateDiv">
+   <p class="question">When should I sleep to get &nbsp; 
+   <input type="number" id="hoursSleep" name="hoursSleep" value={hoursSleep} onChange={handleInputHoursChange} min="0" max="24"/>
+   &nbsp;  hours of sleep if <br/> I need to wake up at&nbsp;
+   <input id="wakeUp" type="datetime-local" name="wakeUp" value={wakeUp} onChange={handleInputwakeChange} /></p>
    <p id="hoursSleepMessage">{hoursSleepMessage}</p>
    </div>
    </>);
