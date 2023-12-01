@@ -40,6 +40,36 @@ function mainPage(props) {
         return `You need to sleep at ${wakeUpTime.toLocaleTimeString()}`;
     };
 
+    const calculateTimeZone = (selectedTime) => {
+        const curTime = new Date(selectedTime);
+        curTime.setHours(curTime.getHours() - hrs);
+        if (isNaN(curTime)) {
+            return "Enter a time to find out what time zone best suits your sleep schedule!";
+        }
+        const timeZones = {
+            "Shanghai": 8,
+            "New York": -5,
+            "Los Angeles": -8,
+            "Paris": 1
+        };
+        const elevenPMUTC = (curTime.getHours() + 23) % 24;
+        const timeDifferences = {};
+        for (let zone in timeZones) {
+            const timeZoneHour = (elevenPMUTC - timeZones[zone] + 24) % 24;
+            timeDifferences[zone] = timeZoneHour;
+        }
+        let closestZone = null;
+        let minDifference = Infinity;
+        for (let zone in timeDifferences) {
+            const difference = timeDifferences[zone];
+            if (difference < minDifference) {
+                minDifference = difference;
+                closestZone = zone;
+            }
+        }
+        return `You are most suited to ${closestZone} time`;
+    };
+
     const handleInputChange = (event) => {
         setTimeUntil(event.target.value);
     };
@@ -59,7 +89,6 @@ function mainPage(props) {
     const handleInputwakeChange = (event) => {
         setwakeUp(event.target.value);
     };
-
 
 
     useEffect(() => {
