@@ -103,7 +103,7 @@ return(
     <div class="leftmoon">
     <img src="../../images/starMoon.png"/>
     <div class="calculateDiv">
-   <p class="question">When to Start and End Sleep:</p>
+   <p class="question">How Many Hours of Sleep Will I Get?</p>
    <input id="twoTimes" type="datetime-local" name="time" value={twoTime} onChange={handleInputtimeChange} />
    &nbsp; to &nbsp;
    <input id="twoTimes2" type="datetime-local" name="time" value={twoTime2} onChange={handleInputtime2Change} />

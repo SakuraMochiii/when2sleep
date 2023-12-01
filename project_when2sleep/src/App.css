@@ -45,7 +45,7 @@
 
 @font-face {
   font-family: question;
-  src: url(../fonts/NanumPenScript-Regular.ttf);
+  src: url(../fonts/LibreBaskerville-Regular.ttf);
 }
 
 .card {
@@ -71,7 +71,7 @@ li{
 .calculateDiv{
   background-color: #305388bf;
   color:white;
-  padding: 15px;
+  padding: 20px;
   border-radius: 5px;
   outline: #4181e1 solid 1.5px;
 }
@@ -110,7 +110,7 @@ ul li a{
 
 .question{
   font-family: question;
-  font-size: 35px;
+  font-size: 24px;
   margin:10px;
 }
 
