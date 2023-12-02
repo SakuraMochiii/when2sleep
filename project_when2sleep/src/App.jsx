@@ -7,6 +7,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import SignUp from './components/signUp';
 
 
 
@@ -17,6 +18,9 @@ function App() {
   },{
     path: "/login",
     element: <Login/>,
+  },{
+    path: "/signup",
+    element: <SignUp/>,
   }
 ])
 
