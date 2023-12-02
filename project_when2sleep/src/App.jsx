@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import SignUp from './components/signUp';
+import Reset from './components/reset';
 
 
 
@@ -21,6 +22,9 @@ function App() {
   },{
     path: "/signup",
     element: <SignUp/>,
+  },{
+    path: "/reset",
+    element: <Reset/>,
   }
 ])
 

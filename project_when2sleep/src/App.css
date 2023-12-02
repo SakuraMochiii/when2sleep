@@ -223,3 +223,10 @@ button:hover{
   bottom:0px;
   transform: scaleX(-1);
 }
+
+.enterEmail{
+  font-family: signIn;
+  color:white;
+  font-size: 25px;
+  margin:2px;
+}
