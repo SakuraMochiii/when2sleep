@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Navigate from './components/navigate';
 import MainPage from './components/mainPage';
-//import Track from './components/Track';
+import Login from './components/login';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,14 +11,13 @@ import {
 
 
 function App() {
-  //const [count, setCount] = useState(0)
   const router = createBrowserRouter([{
     path: '/',
     element: <MainPage/>,
-  }//,{
-   // path: "/track",
-   // element: <Track/>,
-  //}
+  },{
+    path: "/login",
+    element: <Login/>,
+  }
 ])
 
   return (

@@ -48,6 +48,17 @@
   src: url(../fonts/LibreBaskerville-Regular.ttf);
 }
 
+@font-face {
+  font-family: form;
+  src: url(../fonts/HiMelody-Regular.ttf);
+}
+
+@font-face {
+  font-family: signIn;
+  src: url(../fonts/FiraMono-Regular.ttf);
+}
+
+
 .card {
   padding: 2em;
 }
@@ -145,3 +156,70 @@ ul li a{
   position: relative;
 }
 
+h2{
+  font-family: question;
+  font-size: 65px;
+  color:white;
+  margin:5px;
+}
+
+.logindiv{
+  height:70vh;
+  width: 50vw;
+  padding-top:6%;
+  position: relative;
+}
+
+.loginform{
+  width: 20vw;
+  background-color: rgb(81, 109, 140);
+  color:white;
+  padding: 10px;
+  margin:6px;
+  font-size: 35px;
+  border-radius: 3px;
+  border: none;
+}
+
+::placeholder {
+  font-family: form;
+  color: rgba(192, 209, 255, 0.664)
+}
+
+button{
+  font-family: form;
+  width: 22vw;
+  height: 9%;
+  color: white;
+  background-color: rgb(32, 0, 120);
+  border-radius: 10px;
+  font-size: 35px;
+  border-color: rgb(222, 219, 135);
+  border-width: 1.5px;
+  margin: 5px;
+}
+
+button:hover{
+  filter: brightness(90%);
+  color:rgb(152, 142, 232)
+}
+
+.resetpassword{
+  color:white;
+  margin: 5px;
+  padding: 5px;
+  font-family: signIn;
+}
+
+.containerLogin{
+  width:40%;
+  margin: auto;
+  text-align: left;
+}
+
+.logindiv img{
+  position:absolute;
+  right:0px;
+  bottom:0px;
+  transform: scaleX(-1);
+}
