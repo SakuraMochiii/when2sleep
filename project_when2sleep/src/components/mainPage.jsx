@@ -156,9 +156,9 @@ return(
    <div class="moon">
    <img class="light" src="../../images/starMoon.png"/>
    <div class="calculateDiv">
-   <p class="question">When should I sleep to get &nbsp; 
+   <p class="question">When Should I Sleep to Get &nbsp; 
    <input type="number" id="hoursSleep" name="hoursSleep" value={hoursSleep} onChange={handleInputHoursChange} min="0" max="24"/>
-   &nbsp;  hours of sleep if <br/> I need to wake up at&nbsp;
+   &nbsp;  Hours of Sleep if <br/> I Need to Wake Up at&nbsp;
    <input id="wakeUp" type="datetime-local" name="wakeUp" value={wakeUp} onChange={handleInputwakeChange} /></p>
    <p id="hoursSleepMessage">{hoursSleepMessage}</p>
    </div><br/>
