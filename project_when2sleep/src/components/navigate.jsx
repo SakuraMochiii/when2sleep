@@ -2,10 +2,10 @@ function Navigate(props) {
     
 return(
     <header>
+        <img id="logo" src="../../images/logo.png"/>
+        <a href="/" id="when2sleep"> {props.title} </a>
     <nav>
         <ul>
-        <img id="logo" src="../../images/logo.png"/>
-        <li id="when2sleep"><a href="/"> {props.title} </a></li>
         <li><a href="/tracker"> Tracker </a></li>
         <li><a href="/login"> Login </a></li>
         </ul>

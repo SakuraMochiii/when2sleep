@@ -72,11 +72,13 @@ ul {
   display: flex;
 	margin: 5px;
   padding: 0px;
-  align-items: center;
+  flex-grow: 2;
 }
 
 li{
   padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .calculateDiv{
@@ -113,14 +115,26 @@ ul li a{
   color:white;
   font-family: nav;
   font-size: 30px;
+  padding: 10px;
 }
 
-#when2sleep a{
+nav{
+  display: flex;
+  align-items: center;
+}
+
+#when2sleep{
+  color:white;
   font-family: when2sleep;
+  font-size: 30px;
+  align-self: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  text-align: left;
 }
 
 
-#when2sleep a:hover{
+#when2sleep:hover{
   color:rgba(250, 235, 215, 0.805);
 }
 
@@ -229,4 +243,13 @@ button:hover{
   color:white;
   font-size: 25px;
   margin:2px;
+}
+
+/*#rightNav{
+  text-align: right;
+}*/
+
+header{
+  display: flex;
+  width: 50vw;
 }
