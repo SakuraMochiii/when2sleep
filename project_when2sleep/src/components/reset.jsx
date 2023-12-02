@@ -9,7 +9,7 @@ function Reset() {
        <input name="email" type="email" class="loginform" id="exampleFormControlInput1" placeholder="Email" required></input><br/>
        <button type="submit" class="btn btn-primary">Reset Password</button><br/>
        </div>
-       <img src="../../images/starMoon.png"/>
+       <img class="light" src="../../images/starMoon.png"/>
        </div>);
     }
     

@@ -11,7 +11,7 @@ function SignUp() {
        <a class="resetpassword" href="/login">Already have an account? <br/> &nbsp;Log in here!</a>
        <button type="submit" class="btn btn-primary">Sign Up</button><br/>
        </div>
-       <img src="../../images/starMoon.png"/>
+       <img class="light" src="../../images/starMoon.png"/>
        </div>);
     }
     

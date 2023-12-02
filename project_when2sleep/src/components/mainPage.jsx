@@ -134,7 +134,7 @@ return(
    </div><br/>
 
    <div class="moon">
-    <img src="../../images/starMoon.png"/>
+    <img class="light" src="../../images/starMoon.png"/>
     <div class="calculateDiv">
    <p class="question">How Many Hours of Sleep Will I Get If I Sleep Now?</p>
    <input id="timeUntil" type="datetime-local" name="time" value={timeUntil} onChange={handleInputChange} />
@@ -143,7 +143,7 @@ return(
     </div>
 
     <div class="leftmoon">
-    <img src="../../images/starMoon.png"/>
+    <img class="light" src="../../images/starMoon.png"/>
     <div class="calculateDiv">
    <p class="question">How Many Hours of Sleep Will I Get?</p>
    <input id="twoTimes" type="datetime-local" name="time" value={twoTime} onChange={handleInputtimeChange} />
@@ -154,7 +154,7 @@ return(
    </div>
 
    <div class="moon">
-   <img src="../../images/starMoon.png"/>
+   <img class="light" src="../../images/starMoon.png"/>
    <div class="calculateDiv">
    <p class="question">When should I sleep to get &nbsp; 
    <input type="number" id="hoursSleep" name="hoursSleep" value={hoursSleep} onChange={handleInputHoursChange} min="0" max="24"/>
@@ -165,7 +165,7 @@ return(
    </div>
    
    <div class="leftmoon">
-    <img src="../../images/starMoon.png"/>
+    <img class="light" src="../../images/starMoon.png"/>
     <div class="calculateDiv">
    <p class="question">What Time Zone am I Sleeping In?</p>
    <input id="timeZone" type="datetime-local" name="time" value={timeZone} onChange={handleInputTimeZoneChange} />
