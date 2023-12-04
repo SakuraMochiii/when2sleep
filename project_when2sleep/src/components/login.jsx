@@ -1,17 +1,24 @@
+import { AuthContext } from './signIn';
+import React, { useContext, useEffect, useState } from 'react'; 
+
+
 function Login() {
-    
+
     return(
-       <div class="logindiv">
+      
+       <div className="logindiv">
         <h2>Welcome Back to<br/> When2Sleep!</h2>
 
-        <div class="containerLogin">
-       <input name="email" type="email" class="loginform" id="exampleFormControlInput1" placeholder="Email" required></input><br/>
-       <input name="password" type="password" class="loginform" id="exampleFormControlInput2" placeholder="Password" required></input><br/>
-       <a class="resetpassword" href="/reset">Forgot Your Password?</a><br/>
-       <button type="submit" class="btn btn-primary">Log In</button><br/>
-       <a class="resetpassword" href="/signup">New? Sign up here!</a>
+        <div className="containerLogin">
+       <input name="email" type="email" className="loginform" id="exampleFormControlInput1" placeholder="Email" required></input><br/>
+       <input name="password" type="password" className="loginform" id="exampleFormControlInput2" placeholder="Password" required></input><br/>
+       <a className="resetpassword" href="/reset">Forgot Your Password?</a><br/>
+
+       
+
+       <a className="resetpassword" href="/signup">New? Sign up here!</a>
        </div>
-       <img class="light" src="../../images/starMoon.png"/>
+       <img className="light" src="../../images/starMoon.png"/>
        </div>);
     }
     

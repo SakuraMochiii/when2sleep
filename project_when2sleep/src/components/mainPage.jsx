@@ -133,19 +133,19 @@ return(
     <h1>{currentTime}</h1>
    </div><br/>
 
-   <div class="moon">
-    <img class="light" src="../../images/starMoon.png"/>
-    <div class="calculateDiv">
-   <p class="question">How Many Hours of Sleep Will I Get If I Sleep Now?</p>
+   <div className="moon">
+    <img className="light" src="../../images/starMoon.png"/>
+    <div className="calculateDiv">
+   <p className="question">How Many Hours of Sleep Will I Get If I Sleep Now?</p>
    <input id="timeUntil" type="datetime-local" name="time" value={timeUntil} onChange={handleInputChange} />
    <p id="timeUntilMessage">{timeUntilMessage}</p>
     </div><br/>
     </div>
 
-    <div class="leftmoon">
-    <img class="light" src="../../images/starMoon.png"/>
-    <div class="calculateDiv">
-   <p class="question">How Many Hours of Sleep Will I Get?</p>
+    <div className="leftmoon">
+    <img className="light" src="../../images/starMoon.png"/>
+    <div className="calculateDiv">
+   <p className="question">How Many Hours of Sleep Will I Get?</p>
    <input id="twoTimes" type="datetime-local" name="time" value={twoTime} onChange={handleInputtimeChange} />
    &nbsp; to &nbsp;
    <input id="twoTimes2" type="datetime-local" name="time" value={twoTime2} onChange={handleInputtime2Change} />
@@ -153,10 +153,10 @@ return(
    </div><br/>
    </div>
 
-   <div class="moon">
-   <img class="light" src="../../images/starMoon.png"/>
-   <div class="calculateDiv">
-   <p class="question">When Should I Sleep to Get &nbsp; 
+   <div className="moon">
+   <img className="light" src="../../images/starMoon.png"/>
+   <div className="calculateDiv">
+   <p className="question">When Should I Sleep to Get &nbsp; 
    <input type="number" id="hoursSleep" name="hoursSleep" value={hoursSleep} onChange={handleInputHoursChange} min="0" max="24"/>
    &nbsp;  Hours of Sleep if <br/> I Need to Wake Up at&nbsp;
    <input id="wakeUp" type="datetime-local" name="wakeUp" value={wakeUp} onChange={handleInputwakeChange} /></p>
@@ -164,10 +164,10 @@ return(
    </div><br/>
    </div>
    
-   <div class="leftmoon">
-    <img class="light" src="../../images/starMoon.png"/>
-    <div class="calculateDiv">
-   <p class="question">What Time Zone am I Sleeping In?</p>
+   <div className="leftmoon">
+    <img className="light" src="../../images/starMoon.png"/>
+    <div className="calculateDiv">
+   <p className="question">What Time Zone am I Sleeping In?</p>
    <input id="timeZone" type="datetime-local" name="time" value={timeZone} onChange={handleInputTimeZoneChange} />
    <p id="timeZoneMessage">{timeZoneMessage}</p>
    </div>

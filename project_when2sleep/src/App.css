@@ -267,3 +267,13 @@ header{
   filter:brightness(110%) 
   drop-shadow(0px 0px 2px rgb(231, 206, 132));
 }
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile img {
+  border-radius: 50%;
+  /* other styling as needed */
+}
