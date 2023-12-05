@@ -1,22 +1,11 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import Navigate from './components/navigate';
-import MainPage from './components/mainPage';
-import Login from './components/login';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import SignUp from './components/signUp';
-import Reset from './components/reset';
-import Tracker from './components/tracker';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import { useGoogleLogin } from '@react-oauth/google';
+import { useEffect, useState } from 'react'
 
 
 
-function App() {
+function Tracker() {
 
   useEffect(() => {
     const storedUser = sessionStorage.getItem('user');
@@ -47,26 +36,9 @@ function App() {
     return { letter: firstLetter, color: colors[colorIndex] };
   }
 
-  const router = createBrowserRouter([{
-    path: '/',
-    element: <MainPage/>,
-  },{
-    path: "/login",
-    element: <Login/>,
-  },{
-    path: "/signup",
-    element: <SignUp/>,
-  },{
-    path: "/reset",
-    element: <Reset/>,
-  },{
-    path: "/tracker",
-    element: <Tracker/>,
-  }
-])
-
+ 
 return (
-  /*<div className='App'>
+  <div className='App'>
     {!user.name && (
       <GoogleLogin
         onSuccess={handleLoginSuccess}
@@ -92,18 +64,14 @@ return (
           {generateAvatar(user.name).letter}
         </div>
         <h3>{user.name}</h3>
-      */
-      <>
-        <Navigate title="When2Sleep" />
-        <RouterProvider router={router} />
-     </>
-    /*}*/
 
-    /*{!user.name && (
+      </>
+    }
+
+    {!user.name && (
       <p>Please log in to continue.</p>
     )}
-    </div>*/
+  </div>
 );
 }
-
-export default App
+export default Tracker;

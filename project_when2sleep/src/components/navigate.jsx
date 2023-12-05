@@ -23,13 +23,13 @@ function Navigate(props) {
                             <button id="loginButton"><a href="/login">&nbsp; Login &nbsp;</a></button>
                         )}
                     </li>
-                </ul>
+                </ul>{/*<
                 {user && user.name && (
                     <div className="user-profile">
                         <img src={user.getImageUrl()} alt={user.getName()} />
                         <span>{user.getName()}</span>
                     </div>
-                )}
+                )}*/}
             </nav>
         </header>
     );
