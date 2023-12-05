@@ -51,7 +51,7 @@ function mainPage(props) {
             const timeZones = {
                 "Shanghai": 8,
                 "New York": -5,
-                "Los Angeles": -8,
+                "Los Angeles": 0,
                 "Paris": 1
             };
             const elevenPMUTC = (curTime.getHours() + 23) % 24;

@@ -30,6 +30,7 @@ function Navigate(props) {
                         <span>{user.getName()}</span>
                     </div>
                 )}*/}
+
             </nav>
         </header>
     );
