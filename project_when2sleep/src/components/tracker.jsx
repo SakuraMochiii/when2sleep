@@ -38,6 +38,8 @@ function Tracker() {
 
  
 return (
+    <div className='cdiv'>
+    <h2>Sleep Tracker</h2>
   <div className='App'>
     {!user.name && (
       <GoogleLogin
@@ -71,7 +73,10 @@ return (
     {!user.name && (
       <p>Please log in to continue.</p>
     )}
+    </div>
+    <img id='preview' src="../../images/clearpreview.png"/>
   </div>
+    
 );
 }
 export default Tracker;

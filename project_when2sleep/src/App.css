@@ -277,3 +277,21 @@ header{
   border-radius: 50%;
   /* other styling as needed */
 }
+
+p, h3{
+  color:white;
+}
+
+#preview{
+  width: 90%;
+  padding:5px;
+}
+
+
+.cdiv{
+  min-height:75vh;
+  width: 55vw;
+  padding-top:3%;
+  position: relative;
+}
+
