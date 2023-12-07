@@ -178,7 +178,7 @@ h2{
 }
 
 .logindiv{
-  height:75vh;
+  min-height:75vh;
   width: 55vw;
   padding-top:3%;
   position: relative;
