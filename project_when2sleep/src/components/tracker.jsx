@@ -65,14 +65,10 @@ return (
         }}>
           {generateAvatar(user.name).letter}
         </div>
-        <h3>{user.name}</h3>
+        <h3 style={{fontSize: '30px'}}>{user.name}</h3>
 
       </>
     }
-
-    {!user.name && (
-      <p>Please log in to continue.</p>
-    )}
     </div>
     <img id='preview' src="../../images/clearpreview.png"/>
   </div>

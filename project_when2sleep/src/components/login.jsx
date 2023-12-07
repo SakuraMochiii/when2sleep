@@ -14,15 +14,28 @@ function Login() {
    }
  }, []);
 
- const handleLoginSuccess = (credentialResponse) => {
-   console.log(credentialResponse);
-   const userObject = jwtDecode(credentialResponse.credential);
-   console.log(userObject);
-   setUser(userObject);
-   sessionStorage.setItem('user', JSON.stringify(userObject)); 
- };
+ const handleLoginSuccess = async (credentialResponse) => {
+  const userObject = jwtDecode(credentialResponse.credential);
+  setUser(userObject);
+  sessionStorage.setItem('user', JSON.stringify(userObject)); 
+  console.log(userObject.name);
 
+  const apiEndpoint = 'http://localhost:3000/login'; 
 
+  console.log("Sending data:", { name: userObject.name });
+    await fetch(apiEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: userObject.name }),
+    })
+    .then(response => response.json())
+    .then(data => console.log('Success:', data))
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+};
  const login = useGoogleLogin({
    onSuccess: tokenResponse => console.log(tokenResponse),
  });
@@ -47,7 +60,7 @@ function Login() {
        <a className="resetpassword" href="/reset">Forgot Your Password?</a><br/>
 
        
-       <button type="submit" class="btn btn-primary">Log In</button><br/>
+       <button type="submit" className="btn btn-primary">Log In</button><br/>
        
        <div className='App'>
     {!user.name && (
@@ -70,18 +83,13 @@ function Login() {
           alignItems: 'center', 
           justifyContent: 'center',
           color: 'white',
-          fontSize: '20px'
+          fontSize: '20px',
         }}>
           {generateAvatar(user.name).letter}
         </div>
-        <h3>{user.name}</h3>
-
+        <h3 style={{fontSize:'30px'}}>{user.name}</h3>
       </>
     }
-
-    {/*{!user.name && (
-      <p>Please log in to continue.</p>
-    )}*/}
   </div>
 
 
