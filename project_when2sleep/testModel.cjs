@@ -1,19 +1,31 @@
-// testModel.js
 const mongoose = require('mongoose');
-const User = require('./models/user.cjs'); 
+const User = require('./models/user.cjs');
 
-mongoose.connect('mongodb+srv://elaineliang0124:P37zxcLEqYK8OLcB@yeelainee.fbylql0.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+if (!process.env.MONGODB_URI) {
+  console.error('MONGODB_URI is required');
+  process.exit(1);
+}
+
+mongoose.connect(process.env.MONGODB_URI)
   .then(async () => {
-    console.log("Connected to MongoDB");
+    console.log('Connected to MongoDB');
 
     try {
-      const user = new User({ name: 'Test User' });
-      await user.save();
-      console.log("User saved:", user);
+      const user = await User.findOneAndUpdate(
+        { googleSubject: 'local-model-smoke-test' },
+        { $set: { name: 'Test User' } },
+        { new: true, runValidators: true, upsert: true },
+      );
+      console.log('User model smoke test passed:', user.id);
+      await User.deleteOne({ googleSubject: 'local-model-smoke-test' });
     } catch (error) {
-      console.error("Error saving user:", error);
+      console.error('Error testing user model:', error);
+      process.exitCode = 1;
     } finally {
       await mongoose.disconnect();
     }
   })
-  .catch(err => console.error("MongoDB connection error:", err));
+  .catch((error) => {
+    console.error('MongoDB connection error:', error);
+    process.exitCode = 1;
+  });
