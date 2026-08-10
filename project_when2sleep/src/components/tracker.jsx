@@ -1,6 +1,5 @@
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
-import { useGoogleLogin } from '@react-oauth/google';
 import { useEffect, useState } from 'react'
 
 
@@ -15,17 +14,10 @@ function Tracker() {
   }, []);
 
   const handleLoginSuccess = (credentialResponse) => {
-    console.log(credentialResponse);
     const userObject = jwtDecode(credentialResponse.credential);
-    console.log(userObject);
     setUser(userObject);
     sessionStorage.setItem('user', JSON.stringify(userObject)); 
   };
-
-
-  const login = useGoogleLogin({
-    onSuccess: tokenResponse => console.log(tokenResponse),
-  });
 
   const [user, setUser] = useState({})
 

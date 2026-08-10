@@ -1,8 +1,22 @@
-# React + Vite
+# When2Sleep
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Local setup
 
-Currently, two official plugins are available:
+Requires Node.js 20.19 or newer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Copy `.env.example` to `.env` and replace the placeholder values.
+2. Start the API with environment variables loaded:
+
+   ```sh
+   node --env-file=.env server.cjs
+   ```
+
+3. In another terminal, start the frontend:
+
+   ```sh
+   npm run dev
+   ```
+
+The API verifies Google ID tokens before writing user data. `MONGODB_URI` and
+`GOOGLE_CLIENT_ID` are required by the server. Use `CORS_ORIGINS` as a
+comma-separated allowlist for browser origins.

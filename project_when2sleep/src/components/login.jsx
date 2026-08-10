@@ -1,46 +1,44 @@
-import { AuthContext } from './signIn';
-import React, { useContext, useEffect, useState } from 'react'; 
+import { useContext, useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
-import { useGoogleLogin } from '@react-oauth/google';
+import { AuthContext } from './authContext';
 
 
 function Login() {
-
-  useEffect(() => {
-   const storedUser = sessionStorage.getItem('user');
-   if (storedUser) {
-     setUser(JSON.parse(storedUser));
-   }
- }, []);
+ const { user, setUser } = useContext(AuthContext);
+ const [loginError, setLoginError] = useState('');
 
  const handleLoginSuccess = async (credentialResponse) => {
-  const userObject = jwtDecode(credentialResponse.credential);
-  setUser(userObject);
-  sessionStorage.setItem('user', JSON.stringify(userObject)); 
-  console.log(userObject.name);
+  const credential = credentialResponse.credential;
+  if (!credential) {
+    setLoginError('Google did not return a valid credential.');
+    return;
+  }
 
-  const apiEndpoint = 'http://localhost:3000/login'; 
+  const apiEndpoint = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
-  console.log("Sending data:", { name: userObject.name });
-    await fetch(apiEndpoint, {
+  try {
+    const response = await fetch(`${apiEndpoint.replace(/\/$/, '')}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: userObject.name }),
-    })
-    .then(response => response.json())
-    .then(data => console.log('Success:', data))
-    .catch((error) => {
-      console.error('Error:', error);
+      body: JSON.stringify({ credential }),
     });
-};
- const login = useGoogleLogin({
-   onSuccess: tokenResponse => console.log(tokenResponse),
- });
 
- const [user, setUser] = useState({})
+    if (!response.ok) {
+      throw new Error('The server rejected the Google sign-in.');
+    }
+
+    const userObject = jwtDecode(credential);
+    setUser(userObject);
+    sessionStorage.setItem('user', JSON.stringify(userObject));
+    setLoginError('');
+  } catch (error) {
+    console.error('Login failed:', error);
+    setLoginError('Unable to sign in. Please try again.');
+  }
+};
 
  const generateAvatar = (username) => {
    const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33F5', '#F5FF33'];
@@ -67,10 +65,11 @@ function Login() {
       <GoogleLogin
         onSuccess={handleLoginSuccess}
         onError={() => {
-          console.log('Login Failed');
+          setLoginError('Google sign-in failed.');
         }}
       />
     )}
+    {loginError && <p role="alert">{loginError}</p>}
 
     {user && user.name &&
       <>

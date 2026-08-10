@@ -1,7 +1,6 @@
-import React from 'react';
 import {useEffect} from "react"
 import {useState} from "react"
-function mainPage(props) {
+function MainPage() {
     const [timeUntil, setTimeUntil] = useState("");
     const [twoTime, settwoTime] = useState("");
     const [twoTime2, settwoTime2] = useState("");
@@ -175,4 +174,4 @@ return(
    </div>);
 }
 
-export default mainPage;
+export default MainPage;
